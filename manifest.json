@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "TextLok",
-    "version": "1.0",
-    "description": "Lock your text away with TextLok! This intuitive app encrypts your messages, ensuring that only those you trust can read them.",
+    "version": "1.0.2",
+    "description": "This app encrypts your messages, ensuring that only those you trust can read them.",
     "author": "Hamza Siddiqui",
     "action": {
       "default_popup": "index.html",

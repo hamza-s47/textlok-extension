@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ES6",  // Output JavaScript version
+      "module": "ESNext", // Module system used by Chrome extensions
+      "strict": true,    // Enable all strict type-checking options
+      "esModuleInterop": true, // Allow importing CommonJS modules
+      "skipLibCheck": true, // Skip checking types in declaration files
+      "outDir": "./dist", // Output directory for compiled files
+      "rootDir": "./src", // Root directory for TypeScript source files
+      "allowJs": true,   // Allow JavaScript files in the project (if needed)
+      "moduleResolution": "Node"
+    },
+    "include": ["src/**/*"],  // Include all TypeScript files in the 'src' folder
+    "exclude": ["node_modules"]  // Exclude the 'node_modules' folder
+}
+  
