@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TextLok</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <script src="./scripts/general.js"></script>
+    <script src="./scripts/api.js"></script>
+</head>
+<body>
+<!-- TOGGLE BUTTON -->
+<div class="flex w-fit mx-auto my-8">
+
+  <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
+    <input id="e-radio" type="radio" name="radio" value="encrypt" class="peer hidden" checked  onchange="formToggle('e-form', 'd-form')"/>
+    <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Encrypt</span>
+  </label>
+
+  <span class="mx-3"></span>
+  
+  <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
+    <input id="d-radio" type="radio" name="radio" value="decrypt" class="peer hidden" onchange="formToggle('d-form', 'e-form')"/>
+    <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Decrypt</span>
+  </label>
+
+</div>
+
+<!-- DECRYPT FORM -->
+<div id="d-form" class="hidden w-fit mx-auto">
+  <div class="relative">
+    <div class="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"></div>
+    <div id="form-container" class="bg-white px-6 py-16 rounded-lg shadow-2xl w-80 relative z-10 transform transition duration-500 ease-in-out">
+      <div class="w-9 mx-auto mb-5 text-[violet]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M352 144c0-44.2 35.8-80 80-80s80 35.8 80 80l0 48c0 17.7 14.3 32 32 32s32-14.3 32-32l0-48C576 64.5 511.5 0 432 0S288 64.5 288 144l0 48L64 192c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-32 0 0-48z" fill="currentColor"/></svg>
+      </div>
+      <form class="space-y-5 w-full">
+        <input class="w-full h-12 border border-gray-800 px-3 rounded-lg" placeholder="Encrypted text..." id="d-text" type="text">
+        <input class="w-full h-12 border border-gray-800 px-3 rounded-lg" placeholder="Secret Key..." id="d-key" type="text">
+        <button type="submit" class="w-full h-12 bg-[violet] hover:bg-[blueviolet] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Decrypt</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ENCRYPT FORM -->
+<div id="e-form" class="w-fit mx-auto">
+    <div class="relative">
+      <div class="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"></div>
+      <div id="form-container" class="bg-white px-6 py-16 rounded-lg shadow-2xl w-80 relative z-10 transform transition duration-500 ease-in-out">
+        <div class="w-8 mx-auto mb-5 text-[violet]">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" fill="currentColor"/></svg>
+        </div>
+        <form class="space-y-5 w-full">
+          <input class="w-full h-12 border border-gray-800 px-3 rounded-lg" placeholder="Enter text..." id="e-text" name="" type="text">
+          <button type="submit" class="w-full h-12 bg-[violet] hover:bg-[blueviolet] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Encrypt</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
