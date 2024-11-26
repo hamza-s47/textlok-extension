@@ -1,7 +1,7 @@
 {
   "name": "textlok-extension",
   "version": "1.0.0",
-  "main": "tailwind.config.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
     "start": "tsc --watch"

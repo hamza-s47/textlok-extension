@@ -1,6 +1,11 @@
-const encryptForm = document.querySelector('#e-form');
-const decryptForm = document.querySelector('d-form');
+export async function apiCalling(payload:any){
+    const url:string = 'https://textlok.vercel.app/api/encrypt';
 
-// encryptForm.addEventListener('submit', ()=> {});
-// decryptForm.addEventListener('submit', ()=> {});
-
+    const res = await fetch(url, {
+        method:'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload
+    });
+    let dataResponse = await res.json();
+    return dataResponse;
+}
