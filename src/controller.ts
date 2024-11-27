@@ -1,7 +1,11 @@
-import { apiCalling } from "./api";
+// import { apiCalling } from "./api";
 
-export function element(id:string){
+export function element(id:string):HTMLElement | null {
     const el:HTMLElement | null = document.querySelector(id);
+
+    if (!el) {
+        console.error(`Element with id "${id}" not found.`);
+    }
    
     return el;
 }
@@ -11,15 +15,10 @@ export function boxToggle(show: HTMLElement, hide: HTMLElement) {
     show.classList.remove('hidden');
 }
 
-// function fetchFormData(){
-//     const encryptForm = element('#e-form');
-//     const decryptForm = element('#d-form');
+export function fetchFormData(form:HTMLElement){
+    const formData = new FormData(form as HTMLFormElement);
 
-//     if(encryptForm){
-//         console.warn(encryptForm.target.value)
-//     }
-
-    
-
-
-// }
+    formData.forEach((value, key) => {
+        console.warn(`${key}: ${value}`);
+    });
+}
