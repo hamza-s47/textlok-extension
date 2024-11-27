@@ -18,6 +18,13 @@ if (encryptBox && decryptBox) {
 if(encryptForm && decryptForm){
     encryptForm.addEventListener('submit', (event:Event):void=> {
         event.preventDefault();
-        fetchFormData(encryptForm);
-    } )
+        // console.warn(encryptForm)
+        fetchFormData(event, true);
+    } );
+
+    decryptForm.addEventListener('submit', (event:Event):void=> {
+        event.preventDefault();
+        // console.warn(encryptForm)
+        fetchFormData(event, false);
+    } );
 }

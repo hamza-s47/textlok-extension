@@ -27,7 +27,7 @@ module.exports = {
             directory: path.join(__dirname, ''),
             publicPath: '/'
         },
-        port: 8080,
+        port: 1357,
         open: true,
         hot: true,
         liveReload: true,

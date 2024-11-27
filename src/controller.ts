@@ -1,4 +1,4 @@
-// import { apiCalling } from "./api";
+import { apiCalling } from "./api";
 
 export function element(id:string):HTMLElement | null {
     const el:HTMLElement | null = document.querySelector(id);
@@ -15,10 +15,27 @@ export function boxToggle(show: HTMLElement, hide: HTMLElement): void {
     show.classList.remove('hidden');
 }
 
-export function fetchFormData(form:HTMLElement): void{
-    const formData = new FormData(form as HTMLFormElement);
+export function fetchFormData(event:Event, isEncrypt:boolean): void{
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+    let payload;
 
-    formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
+    if(isEncrypt){
+        payload = {
+            plainText:formData.get('text'),
+            isEncrypt:isEncrypt
+        }
+    } else {
+        payload = {
+            encryptedText:formData.get('text'),
+            key:formData.get('key'),
+            isEncrypt:isEncrypt
+        }
+
+    }
+    apiCalling(payload).then((res)=>{
+        console.warn(res.data);
+    }).catch(err =>{
+        console.error("Error in API controller", err);
     });
-}
+}   
