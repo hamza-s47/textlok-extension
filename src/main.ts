@@ -1,4 +1,4 @@
-import { element, boxToggle, fetchFormData } from "./controller";
+import { element, boxToggle } from "./controller";
 
 // HTML ELEMENTS
 const encryptRadio:HTMLElement | null = element('#e-radio');
@@ -14,17 +14,29 @@ if (encryptBox && decryptBox) {
 } else {
     console.error('One or more elements are missing');
 }
-
+// EVENT LISTENERS
 if(encryptForm && decryptForm){
     encryptForm.addEventListener('submit', (event:Event):void=> {
         event.preventDefault();
-        // console.warn(encryptForm)
-        fetchFormData(event, true);
-    } );
+        // Lazy loading
+        import('./controller')
+            .then((module) => {
+                module.fetchFormData(event, true);
+            })
+            .catch((error) => {
+                console.error('Error loading fetchFormData:', error);
+            });
+    });
 
     decryptForm.addEventListener('submit', (event:Event):void=> {
         event.preventDefault();
-        // console.warn(encryptForm)
-        fetchFormData(event, false);
-    } );
+        // Lazy loading
+        import('./controller')
+            .then((module) => {
+                module.fetchFormData(event, false);
+            })
+            .catch((error) => {
+                console.error('Error loading fetchFormData:', error);
+            });
+    });
 }
