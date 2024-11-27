@@ -7,7 +7,6 @@ const encryptBox:HTMLElement | null = element('#e-box');
 const decryptBox:HTMLElement | null = element('#d-box');
 const encryptForm:HTMLElement | null = element('#e-form');
 const decryptForm:HTMLElement | null = element('#d-form');
-
 // TOGGLE LOGIC
 if (encryptBox && decryptBox) {
     encryptRadio?.addEventListener('change', () => boxToggle(encryptBox, decryptBox));
@@ -17,7 +16,7 @@ if (encryptBox && decryptBox) {
 }
 
 if(encryptForm && decryptForm){
-    encryptForm.addEventListener('submit', (event:Event)=> {
+    encryptForm.addEventListener('submit', (event:Event):void=> {
         event.preventDefault();
         fetchFormData(encryptForm);
     } )

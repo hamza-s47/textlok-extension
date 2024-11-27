@@ -4,7 +4,7 @@
   "main": "dist/main.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack serve --config config.dev.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@types/chrome": "^0.0.284",
+    "copy-webpack-plugin": "^12.0.2",
     "typescript": "^5.7.2"
   },
   "devDependencies": {

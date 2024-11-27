@@ -10,12 +10,12 @@ export function element(id:string):HTMLElement | null {
     return el;
 }
 
-export function boxToggle(show: HTMLElement, hide: HTMLElement) {
+export function boxToggle(show: HTMLElement, hide: HTMLElement): void {
     hide.classList.add('hidden');
     show.classList.remove('hidden');
 }
 
-export function fetchFormData(form:HTMLElement){
+export function fetchFormData(form:HTMLElement): void{
     const formData = new FormData(form as HTMLFormElement);
 
     formData.forEach((value, key) => {
