@@ -20,15 +20,6 @@ module.exports = {
             },
         ],
     },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        port: 8080,
-        open: true,
-        hot: true,
-        liveReload: true,
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
