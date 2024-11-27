@@ -60,6 +60,22 @@
     </div>
   </div>
 
+  <!-- POPUP -->
+  <div id="p-box" class="bg-red-400 hidden fixed top-0 left-0 z-50 py-3 w-full transition-all duration-300 ease-in-out">
+    <dl class="-my-3 text-sm">
+  
+      <div id="isKey" class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4 bg-gray-300">
+        <dt class="font-medium text-gray-900">Secret Key</dt>
+        <dd id="p-key" class="text-gray-700 sm:col-span-2">$1,000,000+</dd>
+      </div>
+  
+      <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4 bg-gray-400">
+        <dt class="font-medium text-gray-900">Your Text</dt>
+        <textarea name="" id="p-text" rows="5" readonly class="text-gray-700 sm:col-span-2 focus:outline-none"></textarea>
+      </div>
+    </dl>
+  </div>
+
   <script src="./main.js"></script>
 </body>
 </html>
