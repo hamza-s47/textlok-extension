@@ -1,5 +1,9 @@
 import { apiCalling } from "./api";
 
+// MAIN DATA
+let mainData:any;
+
+// CONTROLLERS
 export function element(id: string): HTMLElement | null {
     const el: HTMLElement | null = document.querySelector(id);
 
@@ -43,6 +47,7 @@ export function fetchFormData(event: Event, isEncrypt: boolean): Promise<void> {
         apiCalling(payload)
             .then((res) => {
                 apiData = res.data;
+                mainData = apiData;
                 handlePopup(apiData);
                 resolve();
             })
@@ -71,5 +76,16 @@ function handlePopup(data:any): void{
         }
     
         popup.style.display = 'block'
+    }
+}
+
+export function copyToClipboard(isText:boolean){
+    if(isText){
+        navigator.clipboard.writeText(mainData?.text);
+        alert("Text Copied successfully!");
+    }
+    else{
+        navigator.clipboard.writeText(mainData?.secret_key);
+        alert("Key Copied successfully!");
     }
 }

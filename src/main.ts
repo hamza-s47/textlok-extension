@@ -1,4 +1,4 @@
-import { element, boxToggle } from "./controller";
+import { element, boxToggle, copyToClipboard } from "./controller";
 
 // HTML ELEMENTS
 const encryptRadio: HTMLElement | null = element('#e-radio');
@@ -9,10 +9,12 @@ const encryptForm = element('#e-form') as HTMLFormElement | null;
 const decryptForm = element('#d-form') as HTMLFormElement | null;
 const closeBtn: HTMLElement | null = element('#closeBtn');
 const popup: HTMLElement | null = element('#p-box');
-const encryptIcon = element('#e-icon');
-const decryptIcon = element('#d-icon');
-const encryptLoader = element('#e-loader');
-const decryptLoader = element('#d-loader');
+const encryptIcon: HTMLElement | null = element('#e-icon');
+const decryptIcon: HTMLElement | null = element('#d-icon');
+const encryptLoader: HTMLElement | null = element('#e-loader');
+const decryptLoader: HTMLElement | null = element('#d-loader');
+const copyKey: HTMLElement | null = element('#copyKey');
+const copyText: HTMLElement | null = element('#copyText');
 // TOGGLE LOGIC
 if (encryptBox && decryptBox) {
     encryptRadio?.addEventListener('change', () => boxToggle(encryptBox, decryptBox));
@@ -58,5 +60,16 @@ if (popup) {
         decryptForm?.reset();
         // boxToggle(popup);
         popup.style.display = 'none';
+    })
+}
+
+if(copyKey){
+    copyKey.addEventListener('click', ()=>{
+        copyToClipboard(false);
+    })
+}
+if(copyText){
+    copyText.addEventListener('click', ()=>{
+        copyToClipboard(true);
     })
 }
