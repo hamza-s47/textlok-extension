@@ -50,10 +50,10 @@ export function fetchFormData(event: Event, isEncrypt: boolean): void {
 }
 
 function handlePopup(data:any): void{
-    const popup:HTMLElement | null = element('p-box');
-    const key:HTMLElement | null = element('iskey')
-    const keyField:HTMLElement | null = element('p-key');
-    const text:HTMLElement | null = element('p-text');
+    const popup:HTMLElement | null = element('#p-box');
+    const key:HTMLElement | null = element('#isKey')
+    const keyField:HTMLElement | null = element('#p-key');
+    const text:HTMLElement | null = element('#p-text');
 
     if(popup && key && keyField && text){
         if(data.secret_key){
