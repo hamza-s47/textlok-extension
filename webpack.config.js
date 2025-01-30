@@ -30,7 +30,8 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: 'assets', to: 'assets' },
-                { from: 'manifest.json', to: 'manifest.json' }
+                { from: 'manifest.json', to: 'manifest.json' },
+                { from: 'background.js', to: 'background.js' }
             ],
         }),
     ],

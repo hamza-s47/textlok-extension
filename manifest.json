@@ -1,13 +1,18 @@
 {
-    "manifest_version": 3,
-    "name": "TextLok",
-    "version": "1.0.2",
-    "description": "This app encrypts your messages, ensuring that only those you trust can read them.",
-    "author": "Hamza Siddiqui",
-    "action": {
-      "default_popup": "index.html",
-      "default_title": "TextLok",
-      "default_icon": "assets/favicon.png"
-    }
-  }
-  
+  "manifest_version": 3,
+  "name": "TextLok",
+  "version": "1.0.0",
+  "description": "This app encrypts your messages, ensuring that only those you trust can read them.",
+  "author": "Hamza Siddiqui",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "TextLok",
+    "default_icon": "assets/favicon.png"
+  },
+  "permissions": [
+    "storage" 
+  ]
+}
