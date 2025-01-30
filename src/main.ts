@@ -1,4 +1,4 @@
-import { element, boxToggle, copyToClipboard } from "./controller";
+import { element, boxToggle, copyToClipboard, downloadBoth } from "./controller";
 
 // HTML ELEMENTS
 const encryptRadio: HTMLElement | null = element('#e-radio');
@@ -13,8 +13,10 @@ const encryptIcon: HTMLElement | null = element('#e-icon');
 const decryptIcon: HTMLElement | null = element('#d-icon');
 const encryptLoader: HTMLElement | null = element('#e-loader');
 const decryptLoader: HTMLElement | null = element('#d-loader');
-const copyKey: HTMLElement | null = element('#copyKey');
+// const copyKey: HTMLElement | null = element('#copyKey');
 const copyText: HTMLElement | null = element('#copyText');
+const bothDownload: HTMLElement | null = element('#bothDownload');
+
 // TOGGLE LOGIC
 if (encryptBox && decryptBox) {
     encryptRadio?.addEventListener('change', () => boxToggle(encryptBox, decryptBox));
@@ -63,13 +65,18 @@ if (popup) {
     })
 }
 
-if(copyKey){
-    copyKey.addEventListener('click', ()=>{
-        copyToClipboard(false);
-    })
-}
+// if(copyKey){
+//     copyKey.addEventListener('click', ()=>{
+//         copyToClipboard(false);
+//     });
+// }
 if(copyText){
     copyText.addEventListener('click', ()=>{
-        copyToClipboard(true);
-    })
+        copyToClipboard();
+    });
+}
+if(bothDownload){
+    bothDownload.addEventListener('click', ()=>{
+        downloadBoth();
+    });
 }

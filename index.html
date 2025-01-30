@@ -50,10 +50,8 @@
         </div>
 
         <form id="d-form" class="space-y-5 w-full">
-          <input class="w-full h-12 border border-gray-800 pl-2 rounded-lg focus:outline-none"
-            placeholder="Encrypted text..." name="text" id="d-text" type="text">
-          <input class="w-full h-12 border border-gray-800 pl-2 rounded-lg focus:outline-none"
-            placeholder="Secret Key..." name="key" id="d-key" type="text">
+          <input class="w-full h-12 border border-gray-800 pl-2 rounded-lg focus:outline-none" placeholder="Secret Key..." name="key" id="d-key" type="text">
+          <input class="w-full h-12 border border-gray-800 pl-2 rounded-lg focus:outline-none" placeholder="Encrypted text..." name="text" id="d-text" type="text">
           <button type="submit"
             class="w-full h-12 bg-[violet] hover:bg-[blueviolet] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Decrypt</button>
         </form>
@@ -93,8 +91,9 @@
 
     <dl class="text-sm w-full h-[95%] bg-gray-500">
       <div class="pl-5 font-bold text-white w-full py-[5%] flex items-center bg-[#2C3A47]">
-        <button id="copyText" type="button" class="bg-[violet] px-4 py-2 rounded-lg">Copy Text</button>
-        <button id="copyKey" type="button" class="bg-[blueviolet] px-4 py-2 rounded-lg ml-4">Copy Key</button>
+        <button id="copyText" type="button" class="bg-[violet] px-4 py-2 rounded-lg hover:scale-95 transition-all duration-150">Copy Data</button>
+        <!-- <button id="copyKey" type="button" class="bg-[blueviolet] px-4 py-2 rounded-lg mx-4 hover:scale-95 transition-all duration-150">Copy Key</button> -->
+        <button id="bothDownload" type="button" class="bg-[blueviolet] px-4 py-2 rounded-lg ml-4 hover:scale-95 transition-all duration-150">Download Data</button>
         <button id="closeBtn" class="ml-auto mr-5 w-5">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
             <path

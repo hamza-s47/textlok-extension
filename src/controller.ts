@@ -79,13 +79,29 @@ function handlePopup(data:any): void{
     }
 }
 
-export function copyToClipboard(isText:boolean){
-    if(isText){
+export function copyToClipboard(){
+    if(mainData?.secret_key == undefined){
         navigator.clipboard.writeText(mainData?.text);
-        alert("Text Copied successfully!");
+        // alert("Data Copied successfully!");
     }
     else{
-        navigator.clipboard.writeText(mainData?.secret_key);
-        alert("Key Copied successfully!");
+        const encryptedDdata = `{\n  Secret Key: ${mainData?.secret_key}\n  Encrypted Data: ${mainData?.text}\n}`
+        navigator.clipboard.writeText(encryptedDdata);
     }
+    alert("Data Copied successfully!");
+}
+
+export function downloadBoth() {
+    let text;
+    
+    if(mainData?.secret_key != undefined){
+        text = `Secret Key: \n${mainData?.secret_key} \n \nYour Data: \n${mainData?.text} \n \n \n \n \n \nDecrypt this data at https://textlok.vercel.app/ or Dowload the chrome extension 'TextLok'\n\nDeveloper: Hamza Siddiqui\nEmail: hamza.siddiqui4747@gmail.com\nContact: +92 311 246 3375`;
+    } else {
+        text = `Your Data: \n${mainData?.text} \n \n \n \n \n \nThank you for using TextLok😇\n\nDeveloper: Hamza Siddiqui\nEmail: hamza.siddiqui4747@gmail.com\nContact: +92 311 246 3375`;
+    }
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'encrypted_data.txt';
+    link.click();
 }
